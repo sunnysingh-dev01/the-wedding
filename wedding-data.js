@@ -26,7 +26,6 @@ const wedding = {
       { "href": "#story", "label": "Story" },
       { "href": "#events", "label": "Events" },
       { "href": "#gallery", "label": "Gallery" },
-      { "href": "#rsvp", "label": "RSVP" }
     ]
   },
   "music": {
@@ -298,8 +297,8 @@ const wedding = {
     "preparingPdf": "Preparing PDF…",
     "done": "Downloaded ✓",
     "error": "Could not download — try again",
-    "filePng": "SunnyAnita.png",
-    "filePdf": "SunnyAnita.pdf"
+    "filePng": "./assets/SunnyAnita.png",
+    "filePdf": "./assets/SunnyAnita.pdf"
   },
   "invite": {
     "ikonkar": "ੴ",

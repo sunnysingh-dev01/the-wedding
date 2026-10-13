@@ -1038,13 +1038,14 @@ footer{
     <a href="#story">Story</a>
     <a href="#events">Events</a>
     <a href="#gallery">Gallery</a>
-    <a href="#rsvp">RSVP</a>
+    <!-- <a href="#rsvp">RSVP</a> -->
   </div>
 </nav>
 <button id="music-toggle" class="paused" aria-label="Turn music on" title="Music On/Off" data-bind-aria="music.ariaOn" data-bind-title="music.title">
   <span class="music-icon-on">
     <div class="bars"><span></span><span></span><span></span></div>
   </span>
+  <audio id="bg-music" src="assets/music.mp3" loop preload="auto"></audio>
   <svg class="music-icon-off" viewBox="0 0 24 24" fill="none"><path d="M9 18V5l10-2v13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="2.6" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="16" r="2.6" stroke="currentColor" stroke-width="1.6"/><line x1="3" y1="3" x2="21" y2="21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
 </button>
 
@@ -1952,22 +1953,26 @@ ScrollTrigger.create({
    MUSIC TOGGLE (folk ambience — synthesized tanpura-like drone,
    since no external audio file is bundled)
 ============================================================ */
-let audioCtx, droneNodes=[], playing=false;
-const musicBtn = document.getElementById('music-toggle');
-function startDrone(){
-  audioCtx = audioCtx || new (window.AudioContext||window.webkitAudioContext)();
-  const freqs=[146.83,220,293.66]; // D3, A3, D4-ish folk drone
-  droneNodes = freqs.map((f,i)=>{
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type='sine'; osc.frequency.value=f;
-    gain.gain.value = 0;
-    osc.connect(gain).connect(audioCtx.destination);
-    osc.start();
-    gain.gain.linearRampToValueAtTime(0.05/(i+1), audioCtx.currentTime+1.2);
-    return {osc, gain};
-  });
+let audioCtx, droneNodes=[], playing=false;const musicBtn = document.getElementById('music-toggle');
+const bgMusic = document.getElementById('bg-music');
+bgMusic.volume = 0.5; // 0.0 to 1.0
+
+function startMusic() {
+  musicBtn.setAttribute('aria-label', 'Turn music on');
+  bgMusic.play().catch(err => console.warn('Playback blocked:', err));
+  musicBtn.classList.remove('paused');
 }
+
+function stopMusic() {
+  musicBtn.setAttribute('aria-label', 'Turn music off');
+  bgMusic.pause();
+  musicBtn.classList.add('paused');
+}
+
+musicBtn.addEventListener('click', () => {
+  if (bgMusic.paused) startMusic();
+  else stopMusic();
+});
 function stopDrone(){
   droneNodes.forEach(n=>{
     n.gain.gain.linearRampToValueAtTime(0, audioCtx.currentTime+.6);
@@ -2240,28 +2245,28 @@ lightboxEl.addEventListener('touchend', e=>{
 /* ============================================================
    SECTION 11 — RSVP SUBMIT + CONFETTI
 ============================================================ */
-document.getElementById('rsvp-form').addEventListener('submit', function(e){
-  e.preventDefault();
-  this.querySelectorAll('.field').forEach(f=>f.style.display='none');
-  document.getElementById('rsvp-submit').style.display='none';
-  document.getElementById('rsvp-success').classList.add('show');
-  launchConfetti();
-});
-function launchConfetti(){
-  const layer = document.getElementById('confetti-layer');
-  const colors = ['#E8CD7E','#C39A3E','#FBF6EC','#7A1B2E'];
-  for(let i=0;i<70;i++){
-    const c = document.createElement('div');
-    c.className='confetti';
-    c.style.left = Math.random()*100+'%';
-    c.style.top = '-10px';
-    c.style.background = colors[i%colors.length];
-    layer.appendChild(c);
-    gsap.timeline({onComplete:()=>c.remove()})
-      .to(c, {y:window.innerHeight+40, x:'+='+(Math.random()*200-100), rotation:Math.random()*720, duration:Math.random()*2+2, ease:'power1.in'})
-      .to(c, {opacity:0, duration:.4}, '-=.4');
-  }
-}
+// document.getElementById('rsvp-form').addEventListener('submit', function(e){
+//   e.preventDefault();
+//   this.querySelectorAll('.field').forEach(f=>f.style.display='none');
+//   document.getElementById('rsvp-submit').style.display='none';
+//   document.getElementById('rsvp-success').classList.add('show');
+//   launchConfetti();
+// });
+// function launchConfetti(){
+//   const layer = document.getElementById('confetti-layer');
+//   const colors = ['#E8CD7E','#C39A3E','#FBF6EC','#7A1B2E'];
+//   for(let i=0;i<70;i++){
+//     const c = document.createElement('div');
+//     c.className='confetti';
+//     c.style.left = Math.random()*100+'%';
+//     c.style.top = '-10px';
+//     c.style.background = colors[i%colors.length];
+//     layer.appendChild(c);
+//     gsap.timeline({onComplete:()=>c.remove()})
+//       .to(c, {y:window.innerHeight+40, x:'+='+(Math.random()*200-100), rotation:Math.random()*720, duration:Math.random()*2+2, ease:'power1.in'})
+//       .to(c, {opacity:0, duration:.4}, '-=.4');
+//   }
+// }
 
 /* ============================================================
    SECTION 11.5 — DOWNLOAD INVITATION CARD
@@ -2280,30 +2285,32 @@ async function renderInviteCardCanvas(){
   return canvas;
 }
 
-document.getElementById('download-invite-btn').addEventListener('click', async function(){
+document.getElementById('download-invite-btn').addEventListener('click', function () {
+  const btn = this;
+
+  const label = btn.querySelector('.btn-label') || btn;
+  const originalLabel = label.textContent;
+
+  btn.disabled = true;
+
   try {
-    const url = new URL(wedding.download.filePdf, window.location.href).href;
-    console.log('PDF absolute URL:', url);
-
-    const res = await fetch(url);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const blob = await res.blob();
-
-    const blobUrl = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.href = blobUrl;
+    link.href = wedding.download.filePdf;
+    link.target = '_blank';
     link.download = 'SunnyAnita.pdf';
     document.body.appendChild(link);
     link.click();
     link.remove();
-    setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
 
     label.textContent = wedding.download.done;
     launchConfetti();
   } catch (err) {
     console.error('Download failed:', err);
   } finally {
-    setTimeout(()=>{ label.textContent = originalLabel; btn.disabled = false; }, 2200);
+    setTimeout(() => {
+      label.textContent = originalLabel;
+      btn.disabled = false;
+    }, 2200);
   }
 });
 
