@@ -142,61 +142,61 @@ const wedding = {
       { "label": "Venue", "value": "Swagat Palace (Taraori)" }
     ]
   },
-  "menu": {
-    "eyebrow": "A Taste of Punjab",
-    "title": "Lunch & Dinner",
-    "subtitle": "hover a card to see its story",
-    "items": [
-      {
-        "num": "01",
-        "name": "Butter Chicken",
-        "image": "https://images.pexels.com/photos/29685054/pexels-photo-29685054.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "story": "Simmered all night in a velvet tomato gravy — Guru's favourite since childhood."
-      },
-      {
-        "num": "02",
-        "name": "Dal Makhani",
-        "image": "https://images.pexels.com/photos/28674561/pexels-photo-28674561.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "story": "Slow-cooked black lentils, finished with cream — the soul of every Punjabi table."
-      },
-      {
-        "num": "03",
-        "name": "Paneer Lababdar",
-        "image": "https://images.pexels.com/photos/9609838/pexels-photo-9609838.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "story": "Soft paneer in a rich onion-tomato curry, spiced just the way Simran's nani makes it."
-      },
-      {
-        "num": "04",
-        "name": "Amritsari Kulcha",
-        "image": "https://images.pexels.com/photos/28125427/pexels-photo-28125427.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "story": "Stuffed, golden, and straight from the tandoor — best torn by hand."
-      },
-      {
-        "num": "05",
-        "name": "Tandoori Roti",
-        "image": "https://images.pexels.com/photos/5589943/pexels-photo-5589943.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "story": "Smoky, char-kissed bread, served hot off the clay oven all night long."
-      },
-      {
-        "num": "06",
-        "name": "Jalebi",
-        "image": "https://images.pexels.com/photos/18488314/pexels-photo-18488314.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "story": "Crisp, syrup-soaked spirals — because every Punjabi wedding needs something sweet and golden."
-      },
-      {
-        "num": "07",
-        "name": "Rabri",
-        "image": "https://images.pexels.com/photos/18488314/pexels-photo-18488314.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "story": "Thickened sweet milk, slow-reduced for hours, topped with pistachio slivers."
-      },
-      {
-        "num": "08",
-        "name": "Lassi",
-        "image": "https://images.pexels.com/photos/6808666/pexels-photo-6808666.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "story": "Cool, frothy, and unapologetically generous — the way every Punjabi summer should taste."
-      }
-    ]
-  },
+  // "menu": {
+  //   "eyebrow": "A Taste of Punjab",
+  //   "title": "Lunch & Dinner",
+  //   "subtitle": "hover a card to see its story",
+  //   "items": [
+  //     {
+  //       "num": "01",
+  //       "name": "Butter Chicken",
+  //       "image": "https://images.pexels.com/photos/29685054/pexels-photo-29685054.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //       "story": "Simmered all night in a velvet tomato gravy — Guru's favourite since childhood."
+  //     },
+  //     {
+  //       "num": "02",
+  //       "name": "Dal Makhani",
+  //       "image": "https://images.pexels.com/photos/28674561/pexels-photo-28674561.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //       "story": "Slow-cooked black lentils, finished with cream — the soul of every Punjabi table."
+  //     },
+  //     {
+  //       "num": "03",
+  //       "name": "Paneer Lababdar",
+  //       "image": "https://images.pexels.com/photos/9609838/pexels-photo-9609838.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //       "story": "Soft paneer in a rich onion-tomato curry, spiced just the way Simran's nani makes it."
+  //     },
+  //     {
+  //       "num": "04",
+  //       "name": "Amritsari Kulcha",
+  //       "image": "https://images.pexels.com/photos/28125427/pexels-photo-28125427.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //       "story": "Stuffed, golden, and straight from the tandoor — best torn by hand."
+  //     },
+  //     {
+  //       "num": "05",
+  //       "name": "Tandoori Roti",
+  //       "image": "https://images.pexels.com/photos/5589943/pexels-photo-5589943.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //       "story": "Smoky, char-kissed bread, served hot off the clay oven all night long."
+  //     },
+  //     {
+  //       "num": "06",
+  //       "name": "Jalebi",
+  //       "image": "https://images.pexels.com/photos/18488314/pexels-photo-18488314.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //       "story": "Crisp, syrup-soaked spirals — because every Punjabi wedding needs something sweet and golden."
+  //     },
+  //     {
+  //       "num": "07",
+  //       "name": "Rabri",
+  //       "image": "https://images.pexels.com/photos/18488314/pexels-photo-18488314.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //       "story": "Thickened sweet milk, slow-reduced for hours, topped with pistachio slivers."
+  //     },
+  //     {
+  //       "num": "08",
+  //       "name": "Lassi",
+  //       "image": "https://images.pexels.com/photos/6808666/pexels-photo-6808666.jpeg?auto=compress&cs=tinysrgb&w=800",
+  //       "story": "Cool, frothy, and unapologetically generous — the way every Punjabi summer should taste."
+  //     }
+  //   ]
+  // },
   "timeline": {
     "eyebrow": "The Big Day",
     "title": "Wedding Day Timeline",
@@ -287,7 +287,7 @@ const wedding = {
     "eyebrow": "Keep It Forever",
     "title": "Your Invitation Card",
     "subtitle": "a small keepsake — yours to download and cherish",
-    "previewDate": "28 · 11 · 2026",
+    // "previewDate": "28 · 11 · 2026",
     "ikonkar": "ੴ",
     "mandirImage": "./assets/mandir.png",
     "pngButton": "Download Invitation Card",
