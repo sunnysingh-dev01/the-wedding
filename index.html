@@ -1041,7 +1041,7 @@ footer{
     <!-- <a href="#rsvp">RSVP</a> -->
   </div>
 </nav>
-<button id="music-toggle" class="paused" aria-label="Turn music on" title="Music On/Off" data-bind-aria="music.ariaOn" data-bind-title="music.title">
+<button id="music-toggle" aria-label="Turn music on" title="Music On/Off" data-bind-aria="music.ariaOn" data-bind-title="music.title">
   <span class="music-icon-on">
     <div class="bars"><span></span><span></span><span></span></div>
   </span>
@@ -1214,7 +1214,7 @@ footer{
       <div class="eyebrow" data-bind="path.eyebrow">Event One</div>
       <h2 data-bind="path.title">Path</h2>
       <div id="path-details">
-      <div class="ceremony-detail"><span class="lbl">Date</span><span class="val">26 November 2026</span></div>
+      <div class="ceremony-detail"><span class="lbl">Date</span><span class="val">25 November 2026</span></div>
       <div class="ceremony-detail"><span class="lbl">Time</span><span class="val">9:00 AM</span></div>
       <div class="ceremony-detail"><span class="lbl">Venue</span><span class="val">At Our Residence</span></div>
       </div>
@@ -1367,7 +1367,7 @@ footer{
       <div class="ico">🌅</div>
       <div class="when">Morning</div>
       <h3>Barat</h3>
-      <p>Kakowal Road, Bawa Colony, Punjab 141007, India</p>
+      <p>From: Bawa Colony, Kakowal Road, Near Jagir Atta Chakki, Ludhiana, Punjab</p>
     </div>
     <div class="day-item">
       <div class="ico">🌅</div>
@@ -1384,7 +1384,7 @@ footer{
     <div class="day-item">
       <div class="ico">📍</div>
       <div class="when">Venue</div>
-      <h3>At Swagat Palace And Recreation Centre</h3>
+      <h3>Swagat Palace (Taraori)</h3>
       <a class="loc-link" href="https://maps.app.goo.gl/hJ1aeYRKsSS7FfDu5" target="_blank" rel="noopener"><span class="loc-dot" aria-hidden="true"></span>Get Location</a>
     </div>
   </div>
@@ -1584,6 +1584,29 @@ footer{
 <script src="./wedding-data.js"></script>
 <script>
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+
+// ---- Auto-start (one-time convenience) ----
+const anyEvents = ['pointerup', 'mousedown', 'click', 'touchend', 'keydown', 'scroll', 'wheel'];
+let trying = false;
+
+function stopAutoStart() {
+  anyEvents.forEach(ev => window.removeEventListener(ev, tryStart, true));
+}
+
+function tryStart(e) {
+  if (musicBtn.contains(e.target)) return; // the button handles its own clicks
+  if (trying || !bgMusic.paused) return;
+  trying = true;
+  startMusic()
+    .then(stopAutoStart)     // success: stop listening
+    .catch(() => {})         // blocked: keep listening
+    .finally(() => { trying = false; });
+}
+
+anyEvents.forEach(ev =>
+  window.addEventListener(ev, tryStart, { capture: true, passive: true })
+);
 
 /* ============================================================
    WEDDING DATA — apply JSON keys onto the page
@@ -1953,24 +1976,33 @@ ScrollTrigger.create({
    MUSIC TOGGLE (folk ambience — synthesized tanpura-like drone,
    since no external audio file is bundled)
 ============================================================ */
-let audioCtx, droneNodes=[], playing=false;const musicBtn = document.getElementById('music-toggle');
+const musicBtn = document.getElementById('music-toggle');
 const bgMusic = document.getElementById('bg-music');
-bgMusic.volume = 0.5; // 0.0 to 1.0
+bgMusic.volume = 0.5;
+
+function setUI(isOn) {
+  musicBtn.classList.toggle('paused', !isOn);
+  musicBtn.setAttribute('aria-label', isOn ? 'Turn music off' : 'Turn music on');
+}
 
 function startMusic() {
-  musicBtn.setAttribute('aria-label', 'Turn music on');
-  bgMusic.play().catch(err => console.warn('Playback blocked:', err));
-  musicBtn.classList.remove('paused');
+  return bgMusic.play().then(() => setUI(true));
 }
 
 function stopMusic() {
-  musicBtn.setAttribute('aria-label', 'Turn music off');
   bgMusic.pause();
-  musicBtn.classList.add('paused');
+  setUI(false);
 }
+// Try immediately on load (works only if the browser allows it)
 
+startMusic()
+  .then(stopAutoStart)
+  .catch(() => setUI(false));
+
+// ---- Manual toggle ----
 musicBtn.addEventListener('click', () => {
-  if (bgMusic.paused) startMusic();
+  stopAutoStart(); // visitor is in control now, no surprise restarts
+  if (bgMusic.paused) startMusic().catch(() => {});
   else stopMusic();
 });
 function stopDrone(){

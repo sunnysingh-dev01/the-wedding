@@ -114,7 +114,7 @@ const wedding = {
     "title": "Sukhmani Sahib Path",
     "background": "https://images.pexels.com/photos/28496968/pexels-photo-28496968.jpeg?auto=compress&cs=tinysrgb&w=1400",
     "details": [
-      { "label": "Date", "value": "26 November 2026" },
+      { "label": "Date", "value": "25 November 2026" },
       { "label": "Time", "value": "9:00 AM" },
       { "label": "Venue", "value": "At Our Residence" }
     ]
@@ -139,7 +139,7 @@ const wedding = {
     "details": [
       { "label": "Date", "value": "27 November 2026" },
       { "label": "Time", "value": "10:00 AM" },
-      { "label": "Venue", "value": "Swagat Palace And Recreation Centre (Taraori)" }
+      { "label": "Venue", "value": "Swagat Palace (Taraori)" }
     ]
   },
   "menu": {
@@ -206,7 +206,7 @@ const wedding = {
         "icon": "🚍",
         "when": "At 06:00 AM",
         "title": "Barat",
-        "text": "Kakowal Road, Bawa Colony, Punjab 141007, India"
+        "text": "From: Bawa Colony, Kakowal Road, Near Jagir Atta Chakki, Ludhiana, Punjab"
       },
       {
         "icon": "🌅",
@@ -292,7 +292,7 @@ const wedding = {
     "mandirImage": "./assets/mandir.png",
     "pngButton": "Download Invitation Card",
     "pdfButton": "Download as PDF",
-    "note": "Saves as a high-resolution PNG or PDF, ready to share or print.",
+    "note": "Saves as PDF, ready to share or print.",
     "preparingPng": "Preparing your card…",
     "preparingPdf": "Preparing PDF…",
     "done": "Downloaded ✓",
