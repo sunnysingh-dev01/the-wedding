@@ -4,7 +4,7 @@
    Keep this object in sync with wedding-data.json */
 const wedding = {
   "meta": {
-    "title": "Anita & Sunny — A Royal Punjabi Wedding"
+    "title": "Anita & Sunny"
   },
   "couple": {
     "brideName": "Anita",
@@ -243,30 +243,30 @@ const wedding = {
     "callLabel": "Call Venue"
   },
   "gallery": {
-    "eyebrow": "Memories",
+    "eyebrow": "Memories",  
     "title": "Photo Gallery",
     "altPrefix": "Wedding memory",
     "images": [
-      "./assets/bride.png",
-      "./assets/groom.png",
-      "./assets/bride-weeding-groom.jpg",
-      "./assets/family-meetings.png",
-      "./assets/punjbai-weeding-chapters.jpg",
-      "./assets/punjabi-dialgoue-weeding.jpg",
-      "./assets/the-purposal.png",
-      "./assets/coffee-date.png",
-      "./assets/wp-chatting.png",
-      "./assets/insta-chatting.png",
-      "./assets/mandir.png",
-      "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1600&auto=format&fit=crop",
-      "https://images.pexels.com/photos/28496968/pexels-photo-28496968.jpeg?auto=compress&cs=tinysrgb&w=1400",
-      "https://images.pexels.com/photos/757919/pexels-photo-757919.jpeg?auto=compress&cs=tinysrgb&w=1400",
-      "https://images.pexels.com/photos/29685054/pexels-photo-29685054.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/28674561/pexels-photo-28674561.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/9609838/pexels-photo-9609838.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/28125427/pexels-photo-28125427.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/5589943/pexels-photo-5589943.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "https://images.pexels.com/photos/6808666/pexels-photo-6808666.jpeg?auto=compress&cs=tinysrgb&w=800"
+      "./assets/bride2.jpg",
+      "./assets/groom1.jpeg",
+      "./assets/bride-groom1.jpg",
+      "./assets/bride3.jpeg",
+      "./assets/bride1.jpeg",
+      "./assets/bride-groom.jpg",
+      "./assets/groom2.jpeg",
+      "./assets/bride-weeding-groom1.jpg",
+      "./assets/bride-weeding-groom3.jpg",
+      "./assets/bride-weeding-groom2.jpg",
+      // "./assets/mandir.png",
+      // "https://images.unsplash.com/photo-1599661046289-e31897846e41?q=80&w=1600&auto=format&fit=crop",
+      // "https://images.pexels.com/photos/28496968/pexels-photo-28496968.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      // "https://images.pexels.com/photos/757919/pexels-photo-757919.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      // "https://images.pexels.com/photos/29685054/pexels-photo-29685054.jpeg?auto=compress&cs=tinysrgb&w=800",
+      // "https://images.pexels.com/photos/28674561/pexels-photo-28674561.jpeg?auto=compress&cs=tinysrgb&w=800",
+      // "https://images.pexels.com/photos/9609838/pexels-photo-9609838.jpeg?auto=compress&cs=tinysrgb&w=800",
+      // "https://images.pe  xels.com/photos/28125427/pexels-photo-28125427.jpeg?auto=compress&cs=tinysrgb&w=800",
+      // "https://images.pexels.com/photos/5589943/pexels-photo-5589943.jpeg?auto=compress&cs=tinysrgb&w=800",
+      // "https://images.pexels.com/photos/6808666/pexels-photo-6808666.jpeg?auto=compress&cs=tinysrgb&w=800"
     ]
   },
   "rsvp": {

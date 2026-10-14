@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title data-bind="meta.title">Anita &amp; Sunny — A Royal Punjabi Wedding</title>
+<title data-bind="meta.title">Anita &amp; Sunny</title>
+<link rel="icon" href="favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600&family=Noto+Sans+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -2012,13 +2013,6 @@ function stopDrone(){
   });
   droneNodes=[];
 }
-musicBtn.addEventListener('click', ()=>{
-  playing = !playing;
-  musicBtn.classList.toggle('paused', !playing);
-  musicBtn.setAttribute('aria-label', playing ? wedding.music.ariaOff : wedding.music.ariaOn);
-  musicBtn.title = playing ? wedding.music.titleOn : wedding.music.titleOff;
-  if(playing) startDrone(); else stopDrone();
-});
 
 /* ============================================================
    PETALS + GOLD PARTICLES (ambient, whole page)
