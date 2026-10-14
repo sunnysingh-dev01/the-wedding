@@ -124,7 +124,7 @@ const wedding = {
     "title": "Jaggo Night",
     "background": "https://images.pexels.com/photos/757919/pexels-photo-757919.jpeg?auto=compress&cs=tinysrgb&w=1400",
     "details": [
-      { "label": "Date", "value": "26 February 2026" },
+      { "label": "Date", "value": "26 November 2026" },
       { "label": "Time", "value": "7:00 PM" },
       { "label": "Venue", "value": "At Our Residence" }
     ]
@@ -139,7 +139,7 @@ const wedding = {
     "details": [
       { "label": "Date", "value": "27 November 2026" },
       { "label": "Time", "value": "10:00 AM" },
-      { "label": "Venue", "value": "Swagat Palace (Taraori)" }
+      { "label": "Venue", "value": "Gurudwara (Taraori)" }
     ]
   },
   // "menu": {
@@ -344,7 +344,7 @@ const wedding = {
     "subtitle": "for being part of our love story"
   },
   "footer": {
-    "text": "Made with love for Sunny & Anita — November 27, 2026"
+    "text": "Made with love for Sunny & Anita — 2026"
   }
 }
 ;
