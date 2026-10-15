@@ -108,7 +108,7 @@
   "path": {
     "eyebrow": "Event One",
     "title": "Sukhmani Sahib Path",
-    "background": "https://images.pexels.com/photos/28496968/pexels-photo-28496968.jpeg?auto=compress&cs=tinysrgb&w=1400",
+    "background": "https://temples.org/_vercel/image?url=%2Ftemples%2Findia%2Fgolden-temple%2Fgallery%2Fhero.jpg&w=1080&q=75",
     "details": [
       { "label": "Date", "value": "25 November 2026" },
       { "label": "Time", "value": "9:00 AM" },
