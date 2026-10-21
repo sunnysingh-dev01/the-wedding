@@ -204,7 +204,7 @@ const wedding = {
     "items": [
       {
         "icon": "🚍",
-        "when": "At 06:00 AM",
+        "when": "At 07:00 AM",
         "title": "Barat",
         "text": "From: Bawa Colony, Kakowal Road, Near Jagir Atta Chakki, Ludhiana, Punjab"
       },
